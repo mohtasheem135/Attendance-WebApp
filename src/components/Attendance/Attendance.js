@@ -6,11 +6,13 @@ import './attendance.css';
 import fireDB from "../../firebase";
 import { useNavigate } from 'react-router';
 import Footer from '../Footer/Footer';
+import { DataNavigation } from 'react-data-navigation';
 
 const Attendance = () => {
 
 
   const navigate = useNavigate();
+  var m = 0;
 
   const [date, setDate] = useState('');
   const [month, setMonth] = useState('');
@@ -19,7 +21,9 @@ const Attendance = () => {
   const [semester, setSemester] = useState('');
   const [strength, setStrength] = useState('');
 
-  const [roll, setRoll] = useState()
+  const [roll, setRoll] = useState('');
+  const [initial, setInitial] = useState(1);
+  const [mant, setMant] = useState([])
 
   useEffect(() => {
     const current = new Date();
@@ -31,52 +35,37 @@ const Attendance = () => {
     setStrength(localStorage.getItem('strength'));
   }, []);
 
-  var i = 0;
-
-  const data = {};
+  var i = initial;
+  var count = 0;
+  const data = [];
   const attendance = {}
-
+  // setRoll(0)
 
 
 
   function handlePresent() {
-    i++;
-    // setRoll(i);
     if (i <= strength) {
+      setMant([...mant, `${i} is Present `]);
       data[i] = `${i} is Present `;
-      attendance[i] = `${i} is Present `;
-      render(
-        <h3 id='anchor-name' className='present_color'>{data[i]}</h3>
-
-      )
-    }
-    else if (i == strength) {
-      alert('Attendance Done')
-
+      setRoll(`${i} is Present `)
+      i=i+1;
+      setInitial(i)
     }
   }
-
-  //   const element = document.getElementById('anchor-name')
-  // element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
 
   function handleAbsent() {
-    i++;
-    // setRoll(i)
     if (i <= strength) {
-      console.log(strength)
       data[i] = `${i} is Absent `;
-      render(
-        <h3 className='absent_color'>{data[i]}</h3>
-      )
-    }
-    else if (i == strength) {
-      alert('Attendance Done')
+      setRoll(`${i} is Absent `)
+      i=i+1;
+      setInitial(i)
     }
   }
 
+  
+
   function handleUpload() {
-    fireDB.database().ref().child(`Attendance WebApp`).child(`${semester}/${date}${month}${year}`).set(attendance, (err) => {
+    fireDB.database().ref().child(`Attendance WebApp`).child(`${semester}/${date}${month}${year}`).set(mant, (err) => {
       if (err) {
         console.log(err);
       } else {
@@ -86,6 +75,8 @@ const Attendance = () => {
         navigate('/');
       }
     })
+    console.log("ggg"+attendance)
+    // console.log("sss"+mant)
   }
 
   function handleReload() {
@@ -96,6 +87,7 @@ const Attendance = () => {
   return (
     <div>
       <Navbar />
+      <p className='attendance_ppara' >{roll}</p>
       <button onClick={handleReload} className='reload_btn'>Reload</button>
       <div className='attendance_container_1'>
         <h1 className='attendance_container_1_head' >{semester}</h1> <p className='attendance_container_1_p_1'>of Strength :-</p>
@@ -108,7 +100,7 @@ const Attendance = () => {
 
       </div>
 
-{/* <Footer/> */}
+      {/* <Footer/> */}
     </div>
   )
 }

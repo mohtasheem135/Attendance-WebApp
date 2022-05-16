@@ -1,25 +1,22 @@
-
-
-
-.attendance_container_1{
+.attendance_container_1 {
     /* border: 2px solid black; */
     position: fixed;
     top: 30%;
     margin-left: 55%;
 }
 
-.attendance_container_1_head{
+.attendance_container_1_head {
     font-family: 'Ubuntu', sans-serif;
 }
 
-.attendance_container_1_subcontainer_1{
+.attendance_container_1_subcontainer_1 {
     /* border: 2px solid red; */
     display: inline-grid;
     /* margin: 0px 360px; */
-    
+
 }
 
-.attendance_container_1_subcontainer_1_btn_1{
+.attendance_container_1_subcontainer_1_btn_1 {
     font-family: 'Ubuntu', sans-serif;
     font-size: 16px;
     background: none;
@@ -31,10 +28,10 @@
     box-shadow: 2px 1px 6px grey;
     border-radius: 6px;
     border: none;
-    
+
 }
 
-.btn{
+.btn {
     font-family: 'Ubuntu', sans-serif;
     font-size: 16px;
     background: none;
@@ -48,13 +45,13 @@
     border: none;
 }
 
-.attendance_container_1_subcontainer_1_btn_1:hover{
+.attendance_container_1_subcontainer_1_btn_1:hover {
     font-weight: 900;
     box-shadow: 2px 1px 6px black;
     letter-spacing: 1px;
 }
 
-.attendance_container_1_subcontainer_1_btn_2{
+.attendance_container_1_subcontainer_1_btn_2 {
     font-family: 'Ubuntu', sans-serif;
     font-size: 16px;
     background: none;
@@ -68,13 +65,13 @@
     color: white;
 }
 
-.attendance_container_1_subcontainer_1_btn_2:hover{
+.attendance_container_1_subcontainer_1_btn_2:hover {
     font-weight: 900;
     box-shadow: 2px 1px 6px black;
     letter-spacing: 1px;
 }
 
-.attendance_container_1_subcontainer_1_btn_3{
+.attendance_container_1_subcontainer_1_btn_3 {
     font-family: 'Ubuntu', sans-serif;
     font-size: 16px;
     background: none;
@@ -88,14 +85,14 @@
     color: white;
 }
 
-.attendance_container_1_subcontainer_1_btn_3:hover{
+.attendance_container_1_subcontainer_1_btn_3:hover {
     cursor: pointer;
     box-shadow: 2px 1px 6px black;
     font-weight: 900;
     letter-spacing: 1px;
 }
 
-.present_color{
+.present_color {
     color: #4f772d;
     font-family: 'Ubuntu', sans-serif;
     font-size: 17px;
@@ -103,7 +100,8 @@
     letter-spacing: 1px;
     display: flex;
 }
-.absent_color{
+
+.absent_color {
     color: #ff0505;
     font-family: 'Ubuntu', sans-serif;
     font-size: 17px;
@@ -112,14 +110,14 @@
     /* margin-top: -39%; */
 }
 
-.strength{
+.strength {
     /* position: absolute; */
     border: 2px solid black;
     /* margin-top: -40%; */
 }
 
-.reload_btn{
-    
+.reload_btn {
+
     margin: 2% 90%;
     position: fixed;
     top: 15%;
@@ -132,66 +130,81 @@
     color: white;
 }
 
-.reload_btn:hover{
+.reload_btn:hover {
     box-shadow: 2px 1px 6px black;
     cursor: pointer;
     letter-spacing: 1px;
     font-weight: 900;
 }
 
-.attendance_container_1_p_1{
+.attendance_container_1_p_1 {
     font-family: 'Ubuntu', sans-serif;
     font-weight: 15px;
     color: rgba(128, 128, 128, 0.959);
 }
 
-.attendance_container_1_p_2{
-font-family: 'Ubuntu', sans-serif;
-font-weight: 900;
-letter-spacing: 1px;
-font-size: 16px;
+.attendance_container_1_p_2 {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 900;
+    letter-spacing: 1px;
+    font-size: 16px;
+}
+
+.attendance_ppara {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 900;
+    letter-spacing: 1px;
+    font-size: 18px;
+    cursor: default;
+    margin: 54px 54px;
 }
 
 
-@media only screen and (max-width: 500px){
-    .reload_btn{
+@media only screen and (max-width: 500px) {
+    .reload_btn {
         margin: 2% 75%;
     }
 
-    .attendance_container_1{
+    .attendance_container_1 {
         margin-left: 40%;
     }
-    .attendance_container_1_subcontainer_1_btn_1{
+
+    .attendance_container_1_subcontainer_1_btn_1 {
         width: 1px;
         text-align: center;
     }
-    .attendance_container_1_subcontainer_1_btn_2{
+
+    .attendance_container_1_subcontainer_1_btn_2 {
         width: 1px;
         text-align: center;
     }
-    .attendance_container_1_subcontainer_1_btn_3{
+
+    .attendance_container_1_subcontainer_1_btn_3 {
         width: 1px;
         text-align: center;
     }
 }
 
-@media only screen and (max-width: 450px){
-    .reload_btn{
+@media only screen and (max-width: 450px) {
+    .reload_btn {
         margin: 2% 75%;
     }
 
-    .attendance_container_1{
+    .attendance_container_1 {
         margin-left: 40%;
     }
-    .attendance_container_1_subcontainer_1_btn_1{
+
+    .attendance_container_1_subcontainer_1_btn_1 {
         width: 1px;
         text-align: center;
     }
-    .attendance_container_1_subcontainer_1_btn_2{
+
+    .attendance_container_1_subcontainer_1_btn_2 {
         width: 1px;
         text-align: center;
     }
-    .attendance_container_1_subcontainer_1_btn_3{
+
+    .attendance_container_1_subcontainer_1_btn_3 {
         width: 1px;
         text-align: center;
     }
