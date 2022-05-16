@@ -1,0 +1,17 @@
+.footer_c{
+    border: 2px solid black;
+    background-color: black;
+    box-shadow: 2px 1px 6px gray;
+    position: fixed;
+    /* bottom: -3%; */
+    bottom: 0;
+
+    width: 100%;
+}
+
+.footer_p{
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+    text-align: center;
+
+}

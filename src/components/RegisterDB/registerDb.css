@@ -1,0 +1,84 @@
+.register_container_1{
+    /* border: 2px solid black; */
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.options_1{
+    margin-top: 50px;
+    width: 50%;
+    margin-left: 30px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.register_container_1_input_1{
+    width: 30%;
+    padding: 0px 5px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.options_2{
+    width: 30%;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.options_3{
+    width: 30%;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+
+
+
+.register_btn_2{
+    margin: 45px 43%;
+    padding: 12px 28px;
+    font-family: 'Ubuntu', sans-serif;
+    background: none;
+    border: none;
+    border-radius: 6px;
+    background-color: #b8bedd;
+    color: rgb(66, 65, 65);
+}
+
+.register_btn_2:hover{
+    background-color: #0d3b66;
+    color: white;
+    cursor: pointer;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.register_container_2{
+    /* display: flex; */
+    justify-content: center;
+    border: 2px solid black;
+    height: 32pc;
+    overflow: auto;
+    width: 30%;
+}
+
+.cc{
+    margin-left: 12px;
+}
+
+.paraa{
+    font-family: 'Ubuntu', sans-serif;
+}
+
+@media only screen and (max-width: 550px){
+    .options_1{
+        margin-left: 0px;
+    }
+
+    .register_btn_2{
+        margin: 45px 33%;
+    }
+}
+
+@media only screen and (max-width: 430px){
+    .register_btn_2{
+        margin: 45px 26%;
+    }
+}

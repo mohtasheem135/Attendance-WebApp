@@ -1,0 +1,70 @@
+.print_p_1 {
+    font-family: 'Ubuntu', sans-serif;
+    /* margin-top: 75px; */
+    margin-left: 40px;
+}
+
+.print_p_2 {
+    font-family: 'Ubuntu', sans-serif;
+
+
+}
+
+.print_btn {
+    position: absolute;
+    margin: -30% 85%;
+    padding: 14px 50px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: none;
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #f4d35e;
+    box-shadow: 2px 1px 6px grey;
+}
+
+.print_btn:hover {
+    cursor: pointer;
+    box-shadow: 2px 1px 6px black;
+}
+
+.print_head_cc {
+    /* border: 2px solid black; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.print_head_cc_head {
+    margin-left: 40px;
+}
+
+.print_head_cc_para {
+    margin-right: 60px;
+}
+
+@media only screen and (max-width: 550px) {
+    .print_btn {
+        margin: -95% 68%;
+        padding: 11px 35px;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .print_btn {
+        margin: -105% 70%;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .print_btn {
+        margin: -110% 66%;
+        padding: 8px 30px;
+    }
+    .print_head_cc_head {
+        margin-left: 20px;
+        font-size: 24px;
+    }
+    .print_head_cc_para {
+        margin-right: 30px;
+    }
+}

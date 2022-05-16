@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Macondo&family=Ubuntu:wght@300&display=swap');
+
+.navbar_container{
+    border: 2px solid black;
+    /* display: flex;
+    justify-content: center; */
+    background-color: black;
+    box-shadow: 0px 2px 6px grey;
+    border-radius: 0px 0px 8px 8px;
+    /* position: fixed;
+    top: 0%;
+    width: 100%;
+    margin-left: -10px; */
+}
+
+.navbar_container_p{
+    font-family: 'Macondo', cursive;
+    font-size: 24px;
+    text-align: center;
+    color: white;
+}
+
+.navbar_container_p a{
+    color: white;
+    text-decoration: none;
+}
