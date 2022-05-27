@@ -9,12 +9,9 @@ import Footer from '../Footer/Footer';
 const Home = () => {
 
   const [inputValue, setInputValue] = useState('');
+  const [disable, setDisable] = useState(true);
   const navigate = useNavigate();
 
-  // useEffect(()=>{
-  // window.location.reload()
-  //   window.location.reload()
-  // }, [])
 
   const options1 = [
     { value: '1st Semester', label: '1st Semester' },
@@ -36,6 +33,7 @@ const Home = () => {
     // console.log(e.target.value)
     setInputValue(e.target.value);
     localStorage.setItem('strength', e.target.value);
+    setDisable(false)
   }
 
   // function handleClick1(e) {
@@ -54,6 +52,7 @@ const Home = () => {
     navigate('/registerdb')
   }
 
+  
 
   return (
     <div>
@@ -78,7 +77,7 @@ const Home = () => {
         </div>
       </div>
       <div className='btn_container'>
-        <button className='home_container_1_subcontainer_1_button_2' onClick={handleClick2}>Click</button>
+        <button disabled={disable} className='home_container_1_subcontainer_1_button_2' onClick={handleClick2}>Click</button>
         <button className='home_container_1_subcontainer_1_button_3' onClick={handleDB}>Attendance DB</button>
       </div>
       <Footer />
