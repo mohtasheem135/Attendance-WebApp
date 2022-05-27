@@ -12,7 +12,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   // useEffect(()=>{
-    // window.location.reload()
+  // window.location.reload()
   //   window.location.reload()
   // }, [])
 
@@ -30,29 +30,29 @@ const Home = () => {
   const handelOptionSelect1 = (selectedOption) => {
     console.log("Sesion : " + selectedOption.value);
     localStorage.setItem('semester', selectedOption.value);
-}
+  }
 
-function handleChange(e) {
-  // console.log(e.target.value)
-  setInputValue(e.target.value);
-  localStorage.setItem('strength', e.target.value);
-}
+  function handleChange(e) {
+    // console.log(e.target.value)
+    setInputValue(e.target.value);
+    localStorage.setItem('strength', e.target.value);
+  }
 
-// function handleClick1(e) {
-//   e.preventDefault();
-//   console.log(inputValue)
-// }
+  // function handleClick1(e) {
+  //   e.preventDefault();
+  //   console.log(inputValue)
+  // }
 
-function handleClick2(e) {
-  e.preventDefault();
-  // localStorage.setItem('semester', inputValue);
-  
-  navigate('/attendance');
-}
+  function handleClick2(e) {
+    e.preventDefault();
+    // localStorage.setItem('semester', inputValue);
 
-function handleDB() {
-  navigate('/registerdb')
-}
+    navigate('/attendance');
+  }
+
+  function handleDB() {
+    navigate('/registerdb')
+  }
 
 
   return (
@@ -66,20 +66,22 @@ function handleDB() {
             onChange={handelOptionSelect1}
             options={options1}
             className='options'
-            />
-            <br/>
-            <br/>
-            <hr/>
-            <input className='home_container_1_subcontainer_1_input' onChange={handleChange} placeholder="Enetr the strength of class" />
-            {/* <button className='home_container_1_subcontainer_1_button_1' onClick={handleClick2}>Click</button> */}
-            <button className='home_container_1_subcontainer_1_button_2' onClick={handleClick2}>Click</button>
+          />
+          <br />
+          <br />
+          <hr />
+          <input className='home_container_1_subcontainer_1_input' onChange={handleChange} placeholder="Enetr the strength of class" />
+          {/* <button className='home_container_1_subcontainer_1_button_1' onClick={handleClick2}>Click</button> */}
         </div>
         <div className='home_container_1_img_subcontainer_2'>
           <img className='home_container_1_img' src={img_1} alt='img' />
         </div>
       </div>
-            <button className='home_container_1_subcontainer_1_button_3' onClick={handleDB}>Attendance DB</button>
-            <Footer/>
+      <div className='btn_container'>
+        <button className='home_container_1_subcontainer_1_button_2' onClick={handleClick2}>Click</button>
+        <button className='home_container_1_subcontainer_1_button_3' onClick={handleDB}>Attendance DB</button>
+      </div>
+      <Footer />
     </div>
   )
 }

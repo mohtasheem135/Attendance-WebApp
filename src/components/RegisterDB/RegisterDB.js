@@ -17,6 +17,8 @@ const RegisterDB = () => {
         { value: '4th Semester', label: '4th Semester' },
         { value: '5th Semester', label: '5th Semester' },
         { value: '6th Semester', label: '6th Semester' },
+        { value: '7th Semester', label: '7th Semester' },
+        { value: '8th Semester', label: '8th Semester' },
     ];
 
     const options2 = [

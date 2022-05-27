@@ -48,7 +48,7 @@ const Attendance = () => {
       setMant([...mant, `${i} is Present `]);
       data[i] = `${i} is Present `;
       setRoll(`${i} is Present `)
-      i=i+1;
+      i = i + 1;
       setInitial(i)
     }
   }
@@ -57,12 +57,12 @@ const Attendance = () => {
     if (i <= strength) {
       data[i] = `${i} is Absent `;
       setRoll(`${i} is Absent `)
-      i=i+1;
+      i = i + 1;
       setInitial(i)
     }
   }
 
-  
+
 
   function handleUpload() {
     fireDB.database().ref().child(`Attendance WebApp`).child(`${semester}/${date}${month}${year}`).set(mant, (err) => {
@@ -75,13 +75,14 @@ const Attendance = () => {
         navigate('/');
       }
     })
-    console.log("ggg"+attendance)
+    console.log("ggg" + attendance)
     // console.log("sss"+mant)
   }
 
   function handleReload() {
     i = 0;
     window.location.reload()
+    alert("Start Taking The Attendance again.")
   }
 
   return (
@@ -90,8 +91,9 @@ const Attendance = () => {
       <p className='attendance_ppara' >{roll}</p>
       <button onClick={handleReload} className='reload_btn'>Reload</button>
       <div className='attendance_container_1'>
-        <h1 className='attendance_container_1_head' >{semester}</h1> <p className='attendance_container_1_p_1'>of Strength :-</p>
-        <p className='attendance_container_1_p_2'>{strength} students</p>
+        <h1 className='attendance_container_1_head' >{semester}</h1>
+        <p className='attendance_container_1_p_1'>of Strength :- {strength} students</p>
+        {/* <p className='attendance_container_1_p_2'>{strength} students</p> */}
         <div className='attendance_container_1_subcontainer_1'>
           <button className='attendance_container_1_subcontainer_1_btn_1' onClick={handlePresent}>Present</button>
           <button className='attendance_container_1_subcontainer_1_btn_2' onClick={handleAbsent}>Absent</button>
