@@ -1,0 +1,45 @@
+.addYear_inp_container{
+    display: grid;
+    margin-left: 30%;
+    margin-top: 10%;
+}
+
+.addYear_inp{
+    width: 500px;
+    height: 30px;
+    padding: 0px 12px;
+    font-family: 'Ubuntu', sans-serif;
+    letter-spacing: 1px;
+    font-size: 15px;
+    border: none;
+    border: 1px solid #f77f00;
+    border-radius: 4px;
+    outline: none;
+}
+
+.addYear_inp_btn{
+    margin-top: 30px;
+    width: 100px;
+    height: 40px;
+    margin-left: 22%;
+    font-family: 'Ubuntu', sans-serif;
+    letter-spacing: 1px;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    background-color: #f77f00;
+    border-radius: 6px;
+    box-shadow: 2px 1px 6px black;
+}
+
+.addYear_inp_btn:hover{
+    cursor: pointer;
+    background-color: #fcbf49;
+}
+
+.addYear_head{
+    font-family: 'Ubuntu', sans-serif;
+    cursor: default;
+    text-align: center;
+    margin-top: 5%;
+}

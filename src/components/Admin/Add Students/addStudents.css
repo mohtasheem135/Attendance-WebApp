@@ -1,0 +1,109 @@
+.studentsbtn_container_admin_1{
+    margin-left: 30%;
+    margin-top: 3%;
+}
+
+.studentsbtn_container_1_admin_1{
+    margin-left: 395px;
+}
+
+.studentsbtn_container_admin_1_btn {
+    margin-left: 10px;
+    padding: 8px 18px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 16px;
+    border: none;
+    background-color: brown;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 2px 1px 5px black;
+}
+
+.studentsbtn_container_admin_1_btn_2{
+    margin-left: 10px;
+    padding: 8px 29px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 16px;
+    border: none;
+    background-color: brown;
+    color: white;
+    border-radius: 5px;
+    margin-top: 20px;
+    box-shadow: 2px 1px 5px black;
+}
+
+.studentsbtn_container_admin_1_btn_2:hover{
+    cursor: pointer;
+    background-color: rgba(165, 42, 42, 0.596);
+}
+
+.studentsbtn_container_admin_1_btn:hover{
+    cursor: pointer;
+    background-color: rgba(165, 42, 42, 0.596);
+}
+
+.studentsbtn_container_admin_1_inp_container{
+    margin-top: 3%;
+    margin-left: 34%;
+
+}
+
+.studentsbtn_container_admin_1_inp_container_inp{
+    display: flex;
+    font-family: 'Ubuntu', sans-serif;
+    width: 400px;
+    height: 30px;
+    padding: 0px 8px;
+    margin-top: 20px;
+    /* border-radius: 4px; */
+    font-size: 15px;
+    letter-spacing: 1px;
+    border: none;
+    border-bottom: 2px solid maroon;
+}
+
+.studentsbtn_container_admin_1_inp_container_btn{
+    margin-left: 18%;
+    margin-top: 30px;
+    padding: 10px 18px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 15px;
+    letter-spacing: 1px;
+    background-color: goldenrod;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-weight: 600;
+    box-shadow: 2px 1px 5px black;
+}
+
+.studentsbtn_container_admin_1_inp_container_btn:hover{
+    color: black;
+    cursor: pointer;
+}
+
+.studentsbtn_container_admin_1_head{
+    font-family: 'Ubuntu', sans-serif;
+    margin-left: 28%;
+    margin-top: 5%;
+
+}
+.student_container_1_subcontainer_1_year_p1{
+    margin-left: 20px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 30px;
+    color: #1b4332;
+    cursor: default;
+}
+
+.student_container_1_subcontainer_1_year_p2{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    cursor: default;
+    color: #184e77;
+}

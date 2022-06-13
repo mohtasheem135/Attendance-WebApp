@@ -1,0 +1,56 @@
+.reg_container{
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: center;
+}
+
+.reg_inp_form{
+    /* border: 2px solid #000000; */
+    display: grid;
+    margin-top: 100px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.login_inp_form{
+    margin-top: 160px;
+}
+
+.reg_inp{
+    width: 400px;
+    height: 23px;
+    padding: 4px 8px;
+    margin-top: 20px;
+    outline: none;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 15px;
+    border: 1px solid #2b2d42;
+    border-radius: 3px;
+}
+
+.reg_inp_btn{
+    margin-top: 25px;
+    height: 40px;
+
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 15px;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    background-color: #073b4c;
+    letter-spacing: 1.5px;
+}
+
+.reg_inp_btn:hover{
+    cursor: pointer;
+    background-color: #118ab2;
+    color: black;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
+
+.reg_container_head{
+    position: absolute;
+    font-family: 'Ubuntu', sans-serif;
+    cursor: default;
+}
+

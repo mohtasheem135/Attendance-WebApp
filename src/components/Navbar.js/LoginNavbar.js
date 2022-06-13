@@ -3,7 +3,7 @@ import "./navbar.css";
 import { useNavigate } from 'react-router';
 
 
-const Navbar = () => {
+const LoginNavbar = () => {
 
   const navigate = useNavigate();
 
@@ -18,11 +18,11 @@ const Navbar = () => {
           <li className='nav_container_li_1'><a className='nav_container_li_1_a' href='/'>Attendance WebApp</a></li>
         </ul>
         <ul>
-          <li onClick={handelClick} className='nav_container_li_2'>Log In</li>
+          {/* <li onClick={handelClick} className='nav_container_li_2'>Log In</li> */}
         </ul>
       </nav>
     </div>
   )
 }
 
-export default Navbar
+export default LoginNavbar

@@ -7,13 +7,12 @@ import "firebase/compat/database";
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyA_FjjxLk_TcdptHxMDD7qvJ3LAOeLWxkI",
-    authDomain: "login-2-f027c.firebaseapp.com",
-    databaseURL: "https://login-2-f027c-default-rtdb.firebaseio.com",
-    projectId: "login-2-f027c",
-    storageBucket: "login-2-f027c.appspot.com",
-    messagingSenderId: "1035913125382",
-    appId: "1:1035913125382:web:d7345a6383c46e0df1ad87"
+    apiKey: "AIzaSyC69_9HA5MMXCZbe7aq8LKBPqohP5mLeJg",
+    authDomain: "linkedin-b233b.firebaseapp.com",
+    projectId: "linkedin-b233b",
+    storageBucket: "linkedin-b233b.appspot.com",
+    messagingSenderId: "587539870470",
+    appId: "1:587539870470:web:0ac63177d52db9002be487"
 };
 
 const fireDB = firebase.initializeApp(firebaseConfig);

@@ -1,106 +1,130 @@
-import { render } from '@testing-library/react';
-import { isDisabled } from '@testing-library/user-event/dist/utils';
 import React, { useEffect, useState } from 'react';
 import Navbar from '../Navbar.js/Navbar';
 import './attendance.css';
 import fireDB from "../../firebase";
 import { useNavigate } from 'react-router';
-import Footer from '../Footer/Footer';
-import { DataNavigation } from 'react-data-navigation';
 
 const Attendance = () => {
 
 
   const navigate = useNavigate();
-  var m = 0;
+
+  const [studentDB, setStudentDB] = useState('');
+  const [value, setValue] = useState('')
 
   const [date, setDate] = useState('');
   const [month, setMonth] = useState('');
   const [year, setYear] = useState('');
 
   const [semester, setSemester] = useState('');
-  const [strength, setStrength] = useState('');
 
-  const [roll, setRoll] = useState('');
-  const [initial, setInitial] = useState(1);
-  const [mant, setMant] = useState([])
+  const [initial, setInitial] = useState(0);
+
 
   useEffect(() => {
     const current = new Date();
     setDate(`${current.getDate()}`)
-
     setMonth(`${current.getMonth() + 1}`)
     setYear(`${current.getFullYear()}`)
     setSemester(localStorage.getItem('semester'));
-    setStrength(localStorage.getItem('strength'));
+
+    fireDB.database().ref().child(`Attendance/studentDB/${localStorage.getItem('selectYear')}/${localStorage.getItem('selectDepartment')}/Roll`).on('value', (snapshot) => {
+      if (snapshot.val() != null) {
+        setStudentDB({
+          ...snapshot.val(),
+        });
+      } else {
+        snapshot({});
+      }
+    })
+
+    fireDB.database().ref().child(`Attendance/AttendanceDB/${localStorage.getItem('selectYear')}/${localStorage.getItem('selectDepartment')}/${localStorage.getItem('semester')}/1262022`).on('value', (snap) => {
+      if (snap.val() != null) {
+        setValue({
+          ...snap.val(),
+        });
+      } else {
+        snap({});
+      }
+    })
+
+    
+
   }, []);
 
   var i = initial;
-  var count = 0;
-  const data = [];
-  const attendance = {}
-  // setRoll(0)
-
-
 
   function handlePresent() {
-    if (i <= strength) {
-      setMant([...mant, `${i} is Present `]);
-      data[i] = `${i} is Present `;
-      setRoll(`${i} is Present `)
-      i = i + 1;
-      setInitial(i)
-    }
-  }
-
-  function handleAbsent() {
-    if (i <= strength) {
-      data[i] = `${i} is Absent `;
-      setRoll(`${i} is Absent `)
-      i = i + 1;
-      setInitial(i)
-    }
-  }
-
-
-
-  function handleUpload() {
-    fireDB.database().ref().child(`Attendance WebApp`).child(`${semester}/${date}${month}${year}`).set(mant, (err) => {
-      if (err) {
-        console.log(err);
-      } else {
-        alert('Uploaded Successfully...')
-        localStorage.setItem('strength', 0);
-        localStorage.setItem('semester', '');
-        navigate('/');
+    Object.keys(studentDB).map((id, index) => {
+      if (index === i) {
+        console.log(studentDB[id])
+        fireDB.database().ref().child(`Attendance/AttendanceDB/${localStorage.getItem('selectYear')}/${localStorage.getItem('selectDepartment')}/${semester}/${date}${month}${year}`).push(`${studentDB[id]} is Present`, (err) => {
+          if (err) {
+            console.log(err);
+          } 
+        })
       }
     })
-    console.log("ggg" + attendance)
-    // console.log("sss"+mant)
+
+      i = i + 1;
+      setInitial(i)
   }
 
-  function handleReload() {
-    i = 0;
-    window.location.reload()
-    alert("Start Taking The Attendance again.")
+
+  function handleAbsent() {
+    Object.keys(studentDB).map((id, index) => {
+      if (index === i) {
+        console.log(studentDB[id])
+        fireDB.database().ref().child(`Attendance/AttendanceDB/${localStorage.getItem('selectYear')}/${localStorage.getItem('selectDepartment')}/${semester}/${date}${month}${year}`).push(`${studentDB[id]} is Absent`, (err) => {
+          if (err) {
+            console.log(err);
+          } 
+        })
+      }
+    })
+
+      i = i + 1;
+      setInitial(i)
   }
+
+
+
+ 
+
 
   return (
     <div>
       <Navbar />
-      <p className='attendance_ppara' >{roll}</p>
-      <button onClick={handleReload} className='reload_btn'>Reload</button>
-      <div className='attendance_container_1'>
-        <h1 className='attendance_container_1_head' >{semester}</h1>
-        <p className='attendance_container_1_p_1'>of Strength :- {strength} students</p>
-        {/* <p className='attendance_container_1_p_2'>{strength} students</p> */}
-        <div className='attendance_container_1_subcontainer_1'>
-          <button className='attendance_container_1_subcontainer_1_btn_1' onClick={handlePresent}>Present</button>
-          <button className='attendance_container_1_subcontainer_1_btn_2' onClick={handleAbsent}>Absent</button>
-          <button className='attendance_container_1_subcontainer_1_btn_3' onClick={handleUpload}>Upload</button>
-        </div>
+
+      <div className='attendance_db_container_1'>
+        {Object.keys(value).map((id, index) => {
+          return (
+            <div>
+
+              <p className='attendance_db_container_1_p1'>{value[id]}</p>
+            </div>
+          )
+        })}
 
       </div>
+      <div className='attendance_db_container_2'>
+      <h1 className='attendance_container_1_head' >{semester}</h1>
+      {/* <p className='attendance_container_1_p_1'>of Strength :- {strength} students</p> */}
+        {Object.keys(studentDB).map((id, index) => {
+          return (
+            <div>
+              {index === i ? <h3 className='attendance_db_container_2_h3'>Current Roll Call :- {studentDB[id]}</h3> : null}
+            </div>
+          )
+        })}
+
+      </div>
+      
+        <div className='attendance_container_1_subcontainer_1'>
+          <button className='btn attendance_container_1_subcontainer_1_btn_1' onClick={handlePresent}>Present</button>
+          <button className='btn attendance_container_1_subcontainer_1_btn_2' onClick={handleAbsent}>Absent</button>
+          {/* <button className='btn attendance_container_1_subcontainer_1_btn' onClick={handleUpload}>Upload</button> */}
+        </div>
 
       {/* <Footer/> */}
     </div>

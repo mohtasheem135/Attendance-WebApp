@@ -1,0 +1,22 @@
+.admin_home_btn_container{
+    display: grid;
+}
+
+.admin_home_btn_container_btn_1{
+    padding: 12px 20px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 16px;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 4px;
+    background-color: grey;
+    font-weight: 600;
+    cursor: pointer;
+    width: 300px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.admin_home_btn_container_btn_1:hover{
+    background-color: rgba(189, 189, 189, 0.671);
+}

@@ -1,26 +1,48 @@
-@import url('https://fonts.googleapis.com/css2?family=Macondo&family=Ubuntu:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@500&family=Kdam+Thmor+Pro&family=Macondo&family=Ubuntu:wght@300&display=swap');
 
-.navbar_container{
+
+.nav_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     border: 2px solid black;
-    /* display: flex;
-    justify-content: center; */
     background-color: black;
     box-shadow: 0px 2px 6px grey;
     border-radius: 0px 0px 8px 8px;
-    /* position: fixed;
-    top: 0%;
-    width: 100%;
-    margin-left: -10px; */
 }
 
-.navbar_container_p{
+.nav_container_li_1 {
+    list-style: none;
+}
+
+.nav_container_li_1_a {
+    text-decoration: none;
+    color: white;
     font-family: 'Macondo', cursive;
     font-size: 24px;
-    text-align: center;
-    color: white;
 }
 
-.navbar_container_p a{
-    color: white;
+.nav_container_li_2 {
+    list-style: none;
+    margin-right: 40px;
+
     text-decoration: none;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 20px;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 5px;
+}
+
+.nav_container_li_2:hover {
+    background-color: grey;
+    cursor: pointer;
+}
+
+.nav_container_ul_2{
+    display: flex;
+}
+
+.nav_container_li_2_admin{
+    margin-right: 10px;
 }

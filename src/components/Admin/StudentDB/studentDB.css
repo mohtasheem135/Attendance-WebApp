@@ -1,0 +1,94 @@
+.studentDB_year_container{
+    display: flex;
+    margin-left: 40px;
+    margin-top: 20px;
+}
+
+.studentDB_department_container{
+    display: flex;
+    margin-left: 40px;
+    margin-top: 20px;
+}
+
+.studentDB_year_container_btn{
+    margin-left: 20px;
+    padding: 8px 18px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 16px;
+    border: none;
+    background-color: #e76f51;
+    border-radius: 6px;
+    color: white;
+    box-shadow: 2px 1px 6px gray;
+}
+
+.studentDB_year_container_btn:hover{
+    background-color: #f4a261;
+    cursor: pointer;
+    box-shadow: 2px 1px 6px black;
+}
+
+.studentDB_department_container_btn{
+    margin-left: 20px;
+    padding: 8px 18px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 16px;
+    border: none;
+    background-color: #e76f51;
+    border-radius: 6px;
+    color: white;
+    box-shadow: 2px 1px 6px gray;
+}
+
+.studentDB_department_container_btn:hover{
+    background-color: #f4a261;
+    cursor: pointer;
+    box-shadow: 2px 1px 6px black;
+}
+
+.studentDB_list_p1{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 16px;
+    margin-left: 60px;
+    margin-top: 20px;
+    padding: 5px 15px;
+    width: 450px;
+    background-color: #b7e4c7;
+    border-radius: 5px;
+}
+
+.studentDB_list_p2{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 18px;
+    margin-left: 60px;
+    margin-top: 20px;
+    padding: 5px 15px;
+    width: 450px;
+    background-color: #b7e4c7;
+    border-radius: 5px;
+}
+
+.studentDB_table{
+    border: 2px solid black;
+    font-size: 17px;
+}
+
+.studentDB_table_th{
+    border: 2px solid black;
+    width: 500px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.studentDB_table_tr{
+    /* border: 2px solid black; */
+}
+
+.studentDB_table_tr:nth-child(even) {
+    background-color: #d9ed92;
+  }
+
+.studentDB_table_td{
+    border: 2px solid black;
+    padding: 6px 12px;
+    font-family: 'Ubuntu', sans-serif;
+}

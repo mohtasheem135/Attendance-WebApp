@@ -1,55 +1,78 @@
-.attendance_container_1 {
-    /* border: 2px solid black; */
-    /* position: fixed; */
-    /* top: 30%;
-    margin-left: 55%; */
+
+.attendance_db_container_1{
+    /* border: 2px solid rgb(7, 7, 7); */
+    
+    background-color: #fa9a4c9f;
+    width: 300px;
+    height: 450px;
+    margin-top: 20px;
+    overflow: auto;
+    box-shadow: 2px 1px 5px black;
+    border-radius: 5px;
+}
+
+.attendance_db_container_1_p1{
+    font-family: 'Ubuntu', sans-serif;
+    /* margin-left: 20px; */
+    text-align: center;
+    font-size: 16px;
+}
+
+.attendance_db_container_2{
+    /* position: absolute; */
+    margin-left: 400px;
+    margin-top: -470px;
 }
 
 .attendance_container_1_head {
-    /* border: 2px solid green; */
     font-family: 'Ubuntu', sans-serif;
-    /* margin-top: -40px; */
-    margin-left: 20px;
+    margin-left: 0px;
+    margin-bottom: 30px;
+
+}
+
+.attendance_container_1_p_1 {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 900;
+    letter-spacing: 1px;
+    font-size: 16px;
+    /* margin-left: 20px; */
+    color: #4f772d;
+}
+
+.attendance_db_container_2_h3{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 22px;
+    letter-spacing: 1px;
+    margin-top: 45px;
 }
 
 .attendance_container_1_subcontainer_1 {
     /* border: 2px solid red; */
-    /* display: inline-grid; */
-    margin-top: 220px;
-    margin-left: 20px;
-    /* margin: 0px 360px; */
-
+    display: grid;
+    justify-content: right;
+    /* position: absolute; */
+    margin-top: -40px;
+    margin-right: 150px;
 }
+
+.btn{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 16px;
+    background: none;
+    background-color: #5e548e;
+    cursor: pointer;
+    color: white;
+    box-shadow: 2px 1px 6px grey;
+    border-radius: 6px;
+    border: none;
+    width: 300px;
+    height: 40px;
+}
+
 
 .attendance_container_1_subcontainer_1_btn_1 {
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 16px;
-    background: none;
-    padding: 12px 12px;
-    padding: 12px 100px;
-    background-color: #5e548e;
-    cursor: pointer;
-    color: white;
-    box-shadow: 2px 1px 6px grey;
-    border-radius: 6px;
-    border: none;
-    margin-left: 40px;
-
-}
-
-.btn {
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 16px;
-    background: none;
-    padding: 12px 12px;
-    padding: 12px 100px;
-    background-color: #5e548e;
-    cursor: pointer;
-    color: white;
-    box-shadow: 2px 1px 6px grey;
-    border-radius: 6px;
-    border: none;
-    /* margin-left: 20px; */
+    background-color: #aacc00;
 }
 
 .attendance_container_1_subcontainer_1_btn_1:hover {
@@ -59,19 +82,18 @@
 }
 
 .attendance_container_1_subcontainer_1_btn_2 {
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 16px;
-    background: none;
-    padding: 12px 100px;
-    margin-top: 20px;
-    cursor: pointer;
-    box-shadow: 2px 1px 6px grey;
-    border-radius: 6px;
-    border: none;
+    margin-top: 30px;
     background-color: #ce4257;
-    color: white;
-    margin-left: 40px;
 }
+
+
+.attendance_container_1_subcontainer_1_btn:hover {
+    font-weight: 900;
+    box-shadow: 2px 1px 6px black;
+    letter-spacing: 1px;
+}
+
+
 
 .attendance_container_1_subcontainer_1_btn_2:hover {
     font-weight: 900;
@@ -146,16 +168,7 @@
     font-weight: 900;
 }
 
-.attendance_container_1_p_1 {
-    /* border: 2px solid yellow; */
-    font-family: 'Ubuntu', sans-serif;
-    font-weight: 900;
-    letter-spacing: 1px;
-    font-size: 16px;
-    /* margin-top: -10px; */
-    margin-left: 20px;
-    color: #4f772d;
-}
+
 
 /* .attendance_container_1_p_2 {
     border: 2px solid yellow;
@@ -176,45 +189,4 @@
     margin: 180px 20px;
     position: absolute;
     /* margin-top: 20%; */
-}
-
-
-@media only screen and (max-width: 500px) {
-    .reload_btn {
-        margin: 2% 75%;
-    }
-
-    .attendance_container_1 {
-        
-
-    }
-
-    .attendance_container_1_subcontainer_1{
-        /* border: 2px solid rebeccapurple; */
-
-    }
-
-    .attendance_container_1_subcontainer_1_btn_1 {
-        /* width: 1px; */
-        text-align: center;
-        margin-left: 0px;
-    }
-
-    .attendance_container_1_subcontainer_1_btn_2 {
-        /* width: 1px; */
-        text-align: center;
-        margin-left: 0px;
-    }
-
-    .attendance_container_1_subcontainer_1_btn_3 {
-        /* width: 1px; */
-        text-align: center;
-        margin-left: 0px;
-    }
-}
-
-@media only screen and (max-width: 350px) {
-    .reload_btn {
-        margin: 2% 70%;
-    }
 }

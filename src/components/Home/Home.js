@@ -5,12 +5,28 @@ import img_1 from "../../Resources/img_1.jpg";
 import Select from 'react-select';
 import { useNavigate } from 'react-router';
 import Footer from '../Footer/Footer';
+import fireDB from '../../firebase';
 
 const Home = () => {
 
-  const [inputValue, setInputValue] = useState('');
-  const [disable, setDisable] = useState(true);
+  const [data, setData] = useState('');
+  const [value, setValue] = useState('');
+  const [value2, setValue2] = useState('');
+  const [year, setYear] = useState(null);
+  const [department, setDepartment] = useState(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    fireDB.database().ref().child(`Attendance/Year`).on('value', (snapshot) => {
+      if (snapshot.val() != null) {
+        setData({
+          ...snapshot.val(),
+        });
+      } else {
+        snapshot({});
+      }
+    })
+  }, [])
 
 
   const options1 = [
@@ -29,30 +45,44 @@ const Home = () => {
     localStorage.setItem('semester', selectedOption.value);
   }
 
-  function handleChange(e) {
-    // console.log(e.target.value)
-    setInputValue(e.target.value);
-    localStorage.setItem('strength', e.target.value);
-    setDisable(false)
-  }
-
-  // function handleClick1(e) {
-  //   e.preventDefault();
-  //   console.log(inputValue)
-  // }
-
   function handleClick2(e) {
     e.preventDefault();
-    // localStorage.setItem('semester', inputValue);
-
     navigate('/attendance');
   }
 
-  function handleDB() {
-    navigate('/registerdb')
+
+  const handelYear = (e) => {
+    e.preventDefault();
+    localStorage.setItem('selectYear', e.target.value);
+    setYear(e.target.value)
+
+    fireDB.database().ref().child(`Attendance/Department`).on('value', (snapshot) => {
+      if (snapshot.val() != null) {
+        setValue({
+          ...snapshot.val(),
+        });
+      } else {
+        snapshot({});
+      }
+    })
+
   }
 
-  
+  const handelDepartment = (e) => {
+    e.preventDefault();
+    localStorage.setItem('selectDepartment', e.target.value);
+    setDepartment(e.target.value)
+
+    fireDB.database().ref().child(`Attendance/Semester`).on('value', (snapshot) => {
+      if (snapshot.val() != null) {
+        setValue2({
+          ...snapshot.val(),
+        });
+      } else {
+        snapshot({});
+      }
+    })
+  }
 
   return (
     <div>
@@ -60,25 +90,42 @@ const Home = () => {
 
       <div className='home_container_1'>
         <div className='home_container_1_subcontainer_1'>
+          <div className='home_container_1_subcontainer_1_year_cont'>
+            {Object.keys(data).map((id, index) => {
+              return (
+                <button value={data[id]} onClick={handelYear} className='home_container_1_subcontainer_1_year_btn'>{data[id]}</button>
+              )
+            })}
+          </div>
+          <div className='home_container_1_subcontainer_1_department_cont'>
+            {Object.keys(value).map((id, index) => {
+              return (
+                <button value={value[id]} onClick={handelDepartment} className='home_container_1_subcontainer_1_year_btn_1'>{value[id]}</button>
+              )
+            })}
+          </div>
+          <div className='home_container_1_subcontainer_1_department_cont'>
+            {Object.keys(value2).map((id, index) => {
+              return (
+                <button value={value2[id]} onClick={handelDepartment} className='home_container_1_subcontainer_1_year_btn_1'>{value2[id]}</button>
+              )
+            })}
+          </div>
+          {year !== null && department !== null ? <p className='home_container_1_subcontainer_1_year_p1'>Batch :- {year} & Department :- {department}</p> : <p className='home_container_1_subcontainer_1_year_p2'>Select the Batch and Department</p>}
+          <hr />
           <p className='home_container_1_subcontainer_1_p_1'>Select the Semester</p>
           <Select
             onChange={handelOptionSelect1}
             options={options1}
             className='options'
           />
-          <br />
-          <br />
-          <hr />
-          <input className='home_container_1_subcontainer_1_input' onChange={handleChange} placeholder="Enetr the strength of class" />
-          {/* <button className='home_container_1_subcontainer_1_button_1' onClick={handleClick2}>Click</button> */}
         </div>
         <div className='home_container_1_img_subcontainer_2'>
           <img className='home_container_1_img' src={img_1} alt='img' />
         </div>
       </div>
       <div className='btn_container'>
-        <button disabled={disable} className='home_container_1_subcontainer_1_button_2' onClick={handleClick2}>Click</button>
-        <button className='home_container_1_subcontainer_1_button_3' onClick={handleDB}>Attendance DB</button>
+        <button className='home_container_1_subcontainer_1_button_2' onClick={handleClick2}>Click</button>
       </div>
       <Footer />
     </div>

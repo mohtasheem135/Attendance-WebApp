@@ -12,14 +12,86 @@
     width: 50%;
 }
 
+.home_container_1_subcontainer_1_year_cont{
+margin-top: 50px;
+margin-left: 40px;
+}
+
+.home_container_1_subcontainer_1_year_btn{
+    padding: 8px 17px;
+    margin-left: 20px;
+    box-shadow: 2px 1px 5px black;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Ubuntu', sans-serif;
+    letter-spacing: 1px;
+    font-size: 15px;
+    background-color: #344e41;
+    color: white;
+}
+
+.home_container_1_subcontainer_1_year_btn:hover{
+    cursor: pointer;
+    background-color: #a3b18a;
+    color: black;
+}
+
+.home_container_1_subcontainer_1_department_cont{
+    margin-left: 56px;
+    margin-top: 20px;
+}
+
+.home_container_1_subcontainer_1_year_btn_1{
+    padding: 8px 29px;
+    margin-left: 10px;
+    box-shadow: 2px 1px 5px black;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Ubuntu', sans-serif;
+    letter-spacing: 1px;
+    font-size: 15px;
+    background-color: #344e41;
+    color: white;
+}
+
+.home_container_1_subcontainer_1_year_btn_1:hover{
+    cursor: pointer;
+    background-color: #a3b18a;
+    color: black;
+}
+
+.home_container_1_subcontainer_1_year_p1{
+    margin-left: 20px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 30px;
+    color: #1b4332;
+    cursor: default;
+}
+
+.home_container_1_subcontainer_1_year_p2{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    cursor: default;
+    color: #184e77;
+}
+
+
+
 .home_container_1_subcontainer_1_p_1 {
     font-family: 'Ubuntu', sans-serif;
     font-size: 18px;
     font-weight: 900;
     text-align: center;
-    margin-top: 80px;
+    margin-top: 20px;
     letter-spacing: 1px;
+    margin-left: 45px;
     cursor: default;
+    color: #6d6875;
 }
 
 
@@ -31,6 +103,7 @@ hr {
 
 .options {
     font-family: 'Ubuntu', sans-serif;
+    /* margin-top: 10%; */
 }
 
 .home_container_1_subcontainer_1_input {
@@ -123,6 +196,8 @@ hr {
     width: 90%;
     margin-top: 12px;
 }
+
+
 
 @media only screen and (max-width: 600px) {
     .home_container_1_img {
