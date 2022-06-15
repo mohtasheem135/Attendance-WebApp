@@ -1,0 +1,57 @@
+.addSubject_semester_container{
+    /* border: 2px solid black; */
+    width: 800px;
+}
+
+.addSubject_semester_container_btn{
+    margin-top: 20px;
+    padding: 10px 29px;
+}
+
+.addSubject_inp_container{
+    /* border: 2px solid black; */
+    margin-top: 20px ;
+    margin-left: 20px;
+    display: grid;
+}
+
+.addSubject_inp_container_inp {
+    width: 400px;
+    height: 25px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 15px;
+    margin-left: 400px;
+    margin-top: 50px;
+    outline: none;
+    letter-spacing: 1px;
+}
+
+.addSubject_inp_container_btn{
+    font-family: 'Ubuntu', sans-serif;
+    width: 80px;
+    height: 30px;
+    margin-left: 550px;
+    margin-top: 20px;
+    border: none;
+    background-color: #f77f00;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    font-size: 15px;
+    color: white;
+}
+
+.addSubject_inp_container_btn:hover{
+    cursor: pointer;
+    background-color: #fcbf49;
+    color: black;
+}
+
+.addSubject_inp_container_head{
+    font-family: 'Ubuntu', sans-serif;
+    /* border: 2px solid red; */
+    width: 400px;
+    margin-left: 800px;
+    position: fixed;
+    top: 120px;
+    letter-spacing: 1px;
+}

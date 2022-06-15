@@ -1,0 +1,9 @@
+.options_1{
+    width: 300px;
+}
+
+.attendanceDB_select{
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: space-evenly;
+}

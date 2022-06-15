@@ -7,6 +7,10 @@ const AdminHome = () => {
 
   const navigate = useNavigate();
 
+  const handelClick0 = (e) => {
+    navigate('/register')
+  }
+
   const handelClick1 = (e) => {
     navigate('/addstudent')
   }
@@ -33,6 +37,7 @@ const AdminHome = () => {
       <AdminNavbar />
       <h1>Admin Home</h1>
       <div className='admin_home_btn_container'>
+        <button onClick={handelClick0} className='admin_home_btn_container_btn_1'>Add Admin</button>
         <button onClick={handelClick1} className='admin_home_btn_container_btn_1'>Add Students</button>
         <button onClick={handelClick2} className='admin_home_btn_container_btn_1'>Add Year</button>
         <button onClick={handelClick3} className='admin_home_btn_container_btn_1'>Student DB</button>

@@ -12,6 +12,7 @@ import AddYear from "./components/Admin/Add Year/AddYear";
 import StudentDB from "./components/Admin/StudentDB/StudentDB";
 import AttendanceDB from "./components/Admin/AttendanceDB/AttendanceDB";
 import AddSubject from "./components/Admin/Add Subject/AddSubject";
+import AttendanceSheet from "./components/Admin/Attendance Sheet/AttendanceSheet";
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
         <Route path="/studentDB" element={<StudentDB />} />
         <Route path="/attendanceDB" element={<AttendanceDB />} />
         <Route path="/addsubject" element={<AddSubject />} />
+        <Route path="/sheet" element={<AttendanceSheet />} />
       </Routes>
     </div>
   );

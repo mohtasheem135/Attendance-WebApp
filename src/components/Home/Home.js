@@ -12,8 +12,24 @@ const Home = () => {
   const [data, setData] = useState('');
   const [value, setValue] = useState('');
   const [value2, setValue2] = useState('');
+  const [semester, setSemester] = useState('');
+  const [subject, setSubject] = useState('')
+  const [subjectCode, setSubjectCode] = useState(null)
+
   const [year, setYear] = useState(null);
   const [department, setDepartment] = useState(null);
+
+  // const [date, setDate] = useState('');
+  // const [month, setMonth] = useState('');
+  // const [year2, setYear2] = useState('');
+  const [finalDate, setFinalDate] = useState('')
+
+  
+    // setDate(`${current.getDate()}`)
+    // setMonth(`${current.getMonth() + 1}`)
+    // setYear2(`${current.getFullYear()}`)
+    
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -26,6 +42,9 @@ const Home = () => {
         snapshot({});
       }
     })
+
+    const current = new Date();
+    setFinalDate(`${current.getDate()}${current.getMonth() + 1}${current.getFullYear()}`)
   }, [])
 
 
@@ -43,10 +62,22 @@ const Home = () => {
   const handelOptionSelect1 = (selectedOption) => {
     console.log("Sesion : " + selectedOption.value);
     localStorage.setItem('semester', selectedOption.value);
+    setSemester(selectedOption.value)
+    fireDB.database().ref().child(`Attendance/Subjects/${year}/${department}/${selectedOption.value}/subjectCodes`).on('value', (snapshot) => {
+      if (snapshot.val() != null) {
+        setSubject({
+          ...snapshot.val(),
+        });
+      } else {
+        snapshot({});
+      }
+    })
   }
 
   function handleClick2(e) {
     e.preventDefault();
+    // localStorage.setItem('date', finalDate);
+    console.log(finalDate)
     navigate('/attendance');
   }
 
@@ -65,7 +96,7 @@ const Home = () => {
         snapshot({});
       }
     })
-
+    e.target.style.backgroundColor = '#a3b18a';
   }
 
   const handelDepartment = (e) => {
@@ -82,6 +113,17 @@ const Home = () => {
         snapshot({});
       }
     })
+    e.target.style.backgroundColor = '#a3b18a';
+  }
+
+  const handelSubject=(e)=> {
+    localStorage.setItem('setSubject', e.target.value);
+    setSubjectCode(e.target.value)
+    e.target.style.backgroundColor = '#a3b18a';
+
+    
+    localStorage.setItem('date', finalDate);
+    console.log("MMMM"+finalDate)
   }
 
   return (
@@ -104,28 +146,27 @@ const Home = () => {
               )
             })}
           </div>
-          <div className='home_container_1_subcontainer_1_department_cont'>
-            {Object.keys(value2).map((id, index) => {
-              return (
-                <button value={value2[id]} onClick={handelDepartment} className='home_container_1_subcontainer_1_year_btn_1'>{value2[id]}</button>
-              )
-            })}
-          </div>
+          
           {year !== null && department !== null ? <p className='home_container_1_subcontainer_1_year_p1'>Batch :- {year} & Department :- {department}</p> : <p className='home_container_1_subcontainer_1_year_p2'>Select the Batch and Department</p>}
-          <hr />
-          <p className='home_container_1_subcontainer_1_p_1'>Select the Semester</p>
+          {/* <hr /> */}
+          {/* <p className='home_container_1_subcontainer_1_p_1'>Select the Semester</p> */}
           <Select
             onChange={handelOptionSelect1}
             options={options1}
             className='options'
           />
+          <div className='home_container_1_subcontainer_1_subject_cont'>
+            {Object.keys(subject).map((id, index) => {
+              return (
+                <button value={subject[id]} onClick={handelSubject} className='home_container_1_subcontainer_1_year_btn_1'>{subject[id]}</button>
+              )
+            })}
+          </div>
+          {subjectCode!==null?<button className='home_container_1_subcontainer_1_button_2' onClick={handleClick2}>Click</button>: <h3 className='home_container_1_subcontainer_1_head3'>Select the Department, Semester and Subject</h3>}
         </div>
         <div className='home_container_1_img_subcontainer_2'>
           <img className='home_container_1_img' src={img_1} alt='img' />
         </div>
-      </div>
-      <div className='btn_container'>
-        <button className='home_container_1_subcontainer_1_button_2' onClick={handleClick2}>Click</button>
       </div>
       <Footer />
     </div>

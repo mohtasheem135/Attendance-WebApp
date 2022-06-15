@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import fireDB from '../../../firebase';
-import LoginNavbar from '../../Navbar.js/LoginNavbar';
 import "./loginSignup.css";
 import { useNavigate } from 'react-router';
+import AdminNavbar from '../../Navbar.js/AdminNavbar';
 
 const SignUp = () => {
 
@@ -56,7 +56,7 @@ const SignUp = () => {
 
   return (
     <div>
-      <LoginNavbar />
+      <AdminNavbar />
       <div className='reg_container'>
         <h1 className='reg_container_head'>Admin Registration Form...</h1>
         <form className='reg_inp_form'>

@@ -12,9 +12,8 @@ const Attendance = () => {
   const [studentDB, setStudentDB] = useState('');
   const [value, setValue] = useState('')
 
-  const [date, setDate] = useState('');
-  const [month, setMonth] = useState('');
-  const [year, setYear] = useState('');
+  
+  // const [date, setDate] = useState('')
 
   const [semester, setSemester] = useState('');
 
@@ -22,10 +21,9 @@ const Attendance = () => {
 
 
   useEffect(() => {
-    const current = new Date();
-    setDate(`${current.getDate()}`)
-    setMonth(`${current.getMonth() + 1}`)
-    setYear(`${current.getFullYear()}`)
+
+    // setDate(localStorage.getItem('date'))
+
     setSemester(localStorage.getItem('semester'));
 
     fireDB.database().ref().child(`Attendance/studentDB/${localStorage.getItem('selectYear')}/${localStorage.getItem('selectDepartment')}/Roll`).on('value', (snapshot) => {
@@ -38,17 +36,17 @@ const Attendance = () => {
       }
     })
 
-    fireDB.database().ref().child(`Attendance/AttendanceDB/${localStorage.getItem('selectYear')}/${localStorage.getItem('selectDepartment')}/${localStorage.getItem('semester')}/1262022`).on('value', (snap) => {
-      if (snap.val() != null) {
+    fireDB.database().ref().child(`Attendance/AttendanceDB/${localStorage.getItem('selectYear')}/${localStorage.getItem('selectDepartment')}/${localStorage.getItem('setSubject')}/${semester}/${localStorage.getItem('date')}`).on('value', (snapshot) => {
+      if (snapshot.val() != null) {
         setValue({
-          ...snap.val(),
+          ...snapshot.val(),
         });
       } else {
-        snap({});
+        snapshot({});
       }
     })
 
-    
+    // console.log("kkkk"+localStorage.getItem('date'))
 
   }, []);
 
@@ -58,7 +56,7 @@ const Attendance = () => {
     Object.keys(studentDB).map((id, index) => {
       if (index === i) {
         console.log(studentDB[id])
-        fireDB.database().ref().child(`Attendance/AttendanceDB/${localStorage.getItem('selectYear')}/${localStorage.getItem('selectDepartment')}/${semester}/${date}${month}${year}`).push(`${studentDB[id]} is Present`, (err) => {
+        fireDB.database().ref().child(`Attendance/AttendanceDB/${localStorage.getItem('selectYear')}/${localStorage.getItem('selectDepartment')}/${localStorage.getItem('setSubject')}/${localStorage.getItem('date')}`).push(`${studentDB[id]} is Present`, (err) => {
           if (err) {
             console.log(err);
           } 
@@ -75,7 +73,7 @@ const Attendance = () => {
     Object.keys(studentDB).map((id, index) => {
       if (index === i) {
         console.log(studentDB[id])
-        fireDB.database().ref().child(`Attendance/AttendanceDB/${localStorage.getItem('selectYear')}/${localStorage.getItem('selectDepartment')}/${semester}/${date}${month}${year}`).push(`${studentDB[id]} is Absent`, (err) => {
+        fireDB.database().ref().child(`Attendance/AttendanceDB/${localStorage.getItem('selectYear')}/${localStorage.getItem('selectDepartment')}/${localStorage.getItem('setSubject')}/${localStorage.getItem('date')}`).push(`${studentDB[id]} is Absent`, (err) => {
           if (err) {
             console.log(err);
           } 
@@ -109,7 +107,7 @@ const Attendance = () => {
       </div>
       <div className='attendance_db_container_2'>
       <h1 className='attendance_container_1_head' >{semester}</h1>
-      {/* <p className='attendance_container_1_p_1'>of Strength :- {strength} students</p> */}
+      <p className='attendance_container_1_p_1'>Subject :- {localStorage.getItem('setSubject')} students</p>
         {Object.keys(studentDB).map((id, index) => {
           return (
             <div>

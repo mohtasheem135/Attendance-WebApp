@@ -37,6 +37,7 @@ const StudentDB = () => {
                 snapshot({});
             }
         })
+        e.target.style.backgroundColor = '#a3b18a';
     }
 
     const handelDepartment = (e) => {
@@ -56,6 +57,8 @@ const StudentDB = () => {
                 }
             })
         }
+        e.target.style.backgroundColor = '#a3b18a';
+        e.target.style.Color = 'black';
     }
 
     return (

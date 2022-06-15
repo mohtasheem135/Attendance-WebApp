@@ -94,6 +94,17 @@ margin-left: 40px;
     color: #6d6875;
 }
 
+.home_container_1_subcontainer_1_subject_cont{
+    /* border: 2px solid red; */
+    margin-top: 20px;
+    margin-left: 60px;
+}
+
+.home_container_1_subcontainer_1_head3{
+    font-family: 'Ubuntu', sans-serif;
+    margin-left: 160px;
+}
+
 
 hr {
     color: gray;
@@ -144,7 +155,7 @@ hr {
     width: 25%;
     padding: 12px 0px;
     margin-left: 165px;
-    margin-top: -170px;
+    margin-top: 30px;
     font-family: 'Ubuntu', sans-serif;
     font-size: 16px;
     border: none;
