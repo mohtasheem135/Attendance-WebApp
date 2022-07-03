@@ -47,7 +47,7 @@ const StudentDB = () => {
 
         // if (localStorage.getItem('studentDBYear') !== null && e.target.value !== null) {
         if (year !== null && e.target.value !== null) {
-            fireDB.database().ref().child(`Attendance/studentDB/${localStorage.getItem('studentDBYear')}/${localStorage.getItem('studentDBDepartment')}`).on('value', (snapshot) => {
+            fireDB.database().ref().child(`Attendance/StudentDB/${localStorage.getItem('studentDBYear')}/${localStorage.getItem('studentDBDepartment')}`).on('value', (snapshot) => {
                 if (snapshot.val() != null) {
                     setStudentDB({
                         ...snapshot.val(),
@@ -56,9 +56,14 @@ const StudentDB = () => {
                     snapshot({});
                 }
             })
+            fireDB.database().ref().child(`Attendance/StudentDB/${localStorage.getItem('studentDBYear')}/${localStorage.getItem('studentDBDepartment')}/${0}`).remove()
         }
         e.target.style.backgroundColor = '#a3b18a';
         e.target.style.Color = 'black';
+        console.log("MM" + studentDB)
+        Object.keys(studentDB).map((id, index) => {
+            console.log(studentDB[id])
+        })
     }
 
     return (
@@ -84,10 +89,11 @@ const StudentDB = () => {
                     )
                 })}
             </div>
-            {year!==null&&department!==null ? <p className='studentDB_list_p1'> Currently Selected Batch {year} & Department {department}</p> : <p className='studentDB_list_p2'>Select the Batch and Department</p>}
+            {year !== null && department !== null ? <p className='studentDB_list_p1'> Currently Selected Batch {year} & Department {department}</p> : <p className='studentDB_list_p2'>Select the Batch and Department</p>}
 
 
-            {year!==null&&department!==null ? <table className='studentDB_table'>
+            {year !== null && department !== null ? <table className='studentDB_table'>
+                <th className='studentDB_table_th'>SL no.</th>
                 <th className='studentDB_table_th'>Name</th>
                 <th className='studentDB_table_th'>Roll Number</th>
                 <th className='studentDB_table_th'>Email</th>
@@ -95,15 +101,16 @@ const StudentDB = () => {
                 {Object.keys(studentDB).map((id, index) => {
                     return (
                         <tr className='studentDB_table_tr'>
-                            <td className='studentDB_table_td'>{studentDB[id].name}</td>
-                            <td className='studentDB_table_td'>{studentDB[id].roll}</td>
-                            <td className='studentDB_table_td'>{studentDB[id].email}</td>
+                            <td className='studentDB_table_td'>{[id]}</td>
+                            <td className='studentDB_table_td'>{studentDB[id].FIELD2}</td>
+                            <td className='studentDB_table_td'>{studentDB[id].FIELD3}</td>
+                            <td className='studentDB_table_td'>{studentDB[id].FIELD4}</td>
                         </tr>
                     )
                 })}
             </table> : null}
-            
-            
+
+
         </div>
     )
 }

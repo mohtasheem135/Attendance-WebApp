@@ -1,0 +1,37 @@
+
+.attendance-profile-inp-container{
+    /* border: 2px solid black; */
+
+    display: grid;
+    justify-content: center;
+    margin-top: 4%;
+}
+
+.attendance-profile-inp{
+    width: 400px;
+    height: 25px;
+    margin-top: 5%;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 16px;
+    outline: none;
+    padding: 5px 8px;
+}
+
+.attendance-profile-inp-btn{
+    width: 100px;
+    height: 35px;
+    margin-left: 40%;
+    margin-top: 8%;
+    font-family: 'Ubuntu', sans-serif;
+    border: none;
+    font-size: 16px;
+    background-color: brown;
+    color: white;
+    border-radius: 4px;
+}
+
+.attendance-profile-inp-btn:hover{
+    cursor: pointer;
+    background-color: rgba(165, 42, 42, 0.486);
+    color: black;
+}

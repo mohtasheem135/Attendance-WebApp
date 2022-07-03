@@ -1,36 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import "./home.css";
-import Navbar from '../Navbar.js/Navbar';
-import img_1 from "../../Resources/img_1.jpg";
-import Select from 'react-select';
 import { useNavigate } from 'react-router';
-import Footer from '../Footer/Footer';
 import fireDB from '../../firebase';
+import Navbar from '../Navbar.js/Navbar';
+import Footer from "../Footer/Footer";
+import img_1 from "../../Resources/img_5.jpg"
 
 const Home = () => {
 
-  const [data, setData] = useState('');
-  const [value, setValue] = useState('');
-  const [value2, setValue2] = useState('');
-  const [semester, setSemester] = useState('');
-  const [subject, setSubject] = useState('')
-  const [subjectCode, setSubjectCode] = useState(null)
-
-  const [year, setYear] = useState(null);
-  const [department, setDepartment] = useState(null);
-
-  // const [date, setDate] = useState('');
-  // const [month, setMonth] = useState('');
-  // const [year2, setYear2] = useState('');
-  const [finalDate, setFinalDate] = useState('')
-
-  
-    // setDate(`${current.getDate()}`)
-    // setMonth(`${current.getMonth() + 1}`)
-    // setYear2(`${current.getFullYear()}`)
-    
 
   const navigate = useNavigate();
+
+  const [data, setData] = useState('');
+  const [year, setYear] = useState(null);
+  const [value, setValue] = useState('');
+  const [value2, setValue2] = useState('');
+  const [value3, setValue3] = useState('');
+  const [value4, setValue4] = useState('');
+  const [value5, setValue5] = useState('');
+  const [value6, setValue6] = useState('');
+  const [department, setDepartment] = useState(null);
+  const [semester, setSemester] = useState(null);
+  const [subject, setSubject] = useState(null);
+  const [studentDB, setStudentDB] = useState('');
+  const [present, setPresent] = useState(0);
+  const [absent, setAbsent] = useState(0);
+
+  const [roll, setRoll] = useState('')
 
   useEffect(() => {
     fireDB.database().ref().child(`Attendance/Year`).on('value', (snapshot) => {
@@ -43,49 +39,13 @@ const Home = () => {
       }
     })
 
-    const current = new Date();
-    setFinalDate(`${current.getDate()}${current.getMonth() + 1}${current.getFullYear()}`)
+
   }, [])
-
-
-  const options1 = [
-    { value: '1st Semester', label: '1st Semester' },
-    { value: '2nd Semester', label: '2nd Semester' },
-    { value: '3rd Semester', label: '3rd Semester' },
-    { value: '4th Semester', label: '4th Semester' },
-    { value: '5th Semester', label: '5th Semester' },
-    { value: '6th Semester', label: '6th Semester' },
-    { value: '7th Semester', label: '7th Semester' },
-    { value: '8th Semester', label: '8th Semester' },
-  ];
-
-  const handelOptionSelect1 = (selectedOption) => {
-    console.log("Sesion : " + selectedOption.value);
-    localStorage.setItem('semester', selectedOption.value);
-    setSemester(selectedOption.value)
-    fireDB.database().ref().child(`Attendance/Subjects/${year}/${department}/${selectedOption.value}/subjectCodes`).on('value', (snapshot) => {
-      if (snapshot.val() != null) {
-        setSubject({
-          ...snapshot.val(),
-        });
-      } else {
-        snapshot({});
-      }
-    })
-  }
-
-  function handleClick2(e) {
-    e.preventDefault();
-    // localStorage.setItem('date', finalDate);
-    console.log(finalDate)
-    navigate('/attendance');
-  }
-
 
   const handelYear = (e) => {
     e.preventDefault();
-    localStorage.setItem('selectYear', e.target.value);
-    setYear(e.target.value)
+    setYear(e.target.value);
+    localStorage.setItem('profileYear', e.target.value)
 
     fireDB.database().ref().child(`Attendance/Department`).on('value', (snapshot) => {
       if (snapshot.val() != null) {
@@ -101,12 +61,30 @@ const Home = () => {
 
   const handelDepartment = (e) => {
     e.preventDefault();
-    localStorage.setItem('selectDepartment', e.target.value);
-    setDepartment(e.target.value)
+    setDepartment(e.target.value);
+    localStorage.setItem('profileDepartment', e.target.value)
 
-    fireDB.database().ref().child(`Attendance/Semester`).on('value', (snapshot) => {
+    // if (localStorage.getItem('studentDBYear') !== null && e.target.value !== null) {
+    if (year !== null && e.target.value !== null) {
+      fireDB.database().ref().child(`Attendance/Semester`).on('value', (snapshot) => {
+        if (snapshot.val() != null) {
+          setValue2({
+            ...snapshot.val(),
+          });
+        } else {
+          snapshot({});
+        }
+      })
+    }
+    e.target.style.backgroundColor = '#a3b18a';
+  }
+
+  const handelSemester = (e) => {
+    setSemester(e.target.value)
+    localStorage.setItem('profileSemester', e.target.value)
+    fireDB.database().ref().child(`Attendance/Subjects/${year}/${department}/${e.target.value}`).on('value', (snapshot) => {
       if (snapshot.val() != null) {
-        setValue2({
+        setValue3({
           ...snapshot.val(),
         });
       } else {
@@ -116,59 +94,124 @@ const Home = () => {
     e.target.style.backgroundColor = '#a3b18a';
   }
 
-  const handelSubject=(e)=> {
-    localStorage.setItem('setSubject', e.target.value);
-    setSubjectCode(e.target.value)
-    e.target.style.backgroundColor = '#a3b18a';
+  const handelSubjects = (e) => {
+    setSubject(e.target.value)
+    localStorage.setItem('profileSubjects', e.target.value)
 
-    
-    localStorage.setItem('date', finalDate);
-    console.log("MMMM"+finalDate)
+    // Number of Classes
+
+    fireDB.database().ref().child(`Attendance/Subjects/${year}/${department}/${semester}/${e.target.value}`).on('value', (snapshot) => {
+      if (snapshot.val() != null) {
+        setValue4({
+          ...snapshot.val(),
+        });
+      } else {
+        snapshot({});
+      }
+    })
+
+    // StudentDB
+    fireDB.database().ref().child(`Attendance/studentDB/${localStorage.getItem('studentDBYear')}/${localStorage.getItem('studentDBDepartment')}`).on('value', (snapshot) => {
+      if (snapshot.val() != null) {
+        setStudentDB({
+          ...snapshot.val(),
+        });
+      } else {
+        snapshot({});
+      }
+    })
+
+    fireDB.database().ref().child(`Attendance/StudentAttendanceDB/${year}/${department}/${semester}/${e.target.value}`).on('value', (snapshot) => {
+      if (snapshot.val() != null) {
+        setValue5({
+          ...snapshot.val(),
+        });
+      } else {
+        snapshot({});
+      }
+    })
+
+    let p = 0;
+    let a = 0;
+
+    Object.keys(value5).map((id, index) => {
+      fireDB.database().ref().child(`Attendance/StudentAttendanceDB/${year}/${department}/${semester}/${e.target.value}/${studentDB[id].roll}`).on('value', (snapshot) => {
+        if (snapshot.val() != null) {
+          setValue6({
+            ...snapshot.val(),
+          });
+        } else {
+          snapshot({});
+        }
+      })
+      console.log(value6)
+      // }
+    })
+    e.target.style.backgroundColor = '#a3b18a';
   }
+
+
+  const handelChangeinp = (e) => {
+    // setRoll(e.target.value)
+    localStorage.setItem('profileRoll', e.target.value)
+  }
+
+  const handelChangebtn = () => {
+    navigate('/attendanceprofile')
+  }
+
 
   return (
     <div>
       <Navbar />
-
-      <div className='home_container_1'>
-        <div className='home_container_1_subcontainer_1'>
-          <div className='home_container_1_subcontainer_1_year_cont'>
-            {Object.keys(data).map((id, index) => {
-              return (
-                <button value={data[id]} onClick={handelYear} className='home_container_1_subcontainer_1_year_btn'>{data[id]}</button>
-              )
-            })}
-          </div>
-          <div className='home_container_1_subcontainer_1_department_cont'>
-            {Object.keys(value).map((id, index) => {
-              return (
-                <button value={value[id]} onClick={handelDepartment} className='home_container_1_subcontainer_1_year_btn_1'>{value[id]}</button>
-              )
-            })}
-          </div>
-          
-          {year !== null && department !== null ? <p className='home_container_1_subcontainer_1_year_p1'>Batch :- {year} & Department :- {department}</p> : <p className='home_container_1_subcontainer_1_year_p2'>Select the Batch and Department</p>}
-          {/* <hr /> */}
-          {/* <p className='home_container_1_subcontainer_1_p_1'>Select the Semester</p> */}
-          <Select
-            onChange={handelOptionSelect1}
-            options={options1}
-            className='options'
-          />
-          <div className='home_container_1_subcontainer_1_subject_cont'>
-            {Object.keys(subject).map((id, index) => {
-              return (
-                <button value={subject[id]} onClick={handelSubject} className='home_container_1_subcontainer_1_year_btn_1'>{subject[id]}</button>
-              )
-            })}
-          </div>
-          {subjectCode!==null?<button className='home_container_1_subcontainer_1_button_2' onClick={handleClick2}>Click</button>: <h3 className='home_container_1_subcontainer_1_head3'>Select the Department, Semester and Subject</h3>}
-        </div>
-        <div className='home_container_1_img_subcontainer_2'>
-          <img className='home_container_1_img' src={img_1} alt='img' />
-        </div>
+      {/* Year */}
+      <div className='studentDB_year_container'>
+        {Object.keys(data).map((id, index) => {
+          return (
+            <div>
+              <button className='studentDB_year_container_btn' onClick={handelYear} value={data[id]}>{data[id]}</button>
+            </div>
+          )
+        })}
       </div>
-      <Footer />
+
+      {/* Department */}
+      <div className='studentDB_department_container'>
+        {Object.keys(value).map((id, index) => {
+          return (
+            <div>
+              <button className='studentDB_department_container_btn' onClick={handelDepartment} value={value[id]}>{value[id]}</button>
+            </div>
+          )
+        })}
+      </div>
+
+      {/* Semester */}
+      <div className='Home_department_container'>
+        {Object.keys(value2).map((id, index) => {
+          return (
+            <button className='Home_department_container_btn' onClick={handelSemester} value={value2[id]}>{value2[id]}</button>
+
+          )
+        })}
+      </div>
+      
+      {/* Subjects */}
+      <div className='studentDB_department_container'>
+        {Object.keys(value3).map((id, index) => {
+          return (
+            <div>
+              <button className='studentDB_department_container_btn' onClick={handelSubjects} value={value3[id].subjectCode}>{value3[id].subjectCode}</button>
+            </div>
+          )
+        })}
+      </div>
+      {subject !== null ? <div className='attendance-profile-inp-container'>
+        <input className='attendance-profile-inp' onChange={handelChangeinp} placeholder='Roll - Number' />
+        <button className='attendance-profile-inp-btn' onClick={handelChangebtn}>Check</button>
+      </div> : null}
+      <img className='Home_img-1' src={img_1} />
+<Footer />
     </div>
   )
 }

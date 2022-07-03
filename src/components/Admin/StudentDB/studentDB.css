@@ -12,7 +12,7 @@
 
 .studentDB_year_container_btn{
     margin-left: 20px;
-    padding: 8px 18px;
+    padding: 10px 29px;
     font-family: 'Ubuntu', sans-serif;
     font-size: 16px;
     border: none;
@@ -23,7 +23,7 @@
 }
 
 .studentDB_year_container_btn:hover{
-    background-color: #f4a261;
+    background-color: #a3b18a;
     cursor: pointer;
     box-shadow: 2px 1px 6px black;
 }

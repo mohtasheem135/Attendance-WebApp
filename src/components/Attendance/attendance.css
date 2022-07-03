@@ -103,16 +103,15 @@
 
 .attendance_container_1_subcontainer_1_btn_3 {
     font-family: 'Ubuntu', sans-serif;
-    margin-left: 40px;
     font-size: 16px;
     background: none;
     padding: 12px 100px;
-    margin-top: 20px;
+    margin-top: 30px;
     cursor: pointer;
     box-shadow: 2px 1px 6px grey;
     border-radius: 6px;
     border: none;
-    background-color: #aacc00;
+    background-color: #5e548e;
     color: white;
 }
 
@@ -189,4 +188,42 @@
     margin: 180px 20px;
     position: absolute;
     /* margin-top: 20%; */
+}
+
+.attendance_name_roll_container{
+    /* border: 2px solid black; */
+    margin-top: -20px;
+    display: flex;
+    font-family: 'Kdam Thmor Pro', sans-serif;
+}
+
+.attendance_name_roll_container_p1{
+    font-size: 25px;
+    /* color: #e63946; */
+    color: #d62828;
+}
+
+.attendance_name_roll_container_p2{
+    margin-left: 20px;
+    font-size: 29px;
+    margin-top: 21px;
+    color: #3a0ca3;
+}
+
+.attendance_reload_btn{
+    border: none;
+    padding: 9px 18px;
+    margin-left:1200px;
+    margin-top: 30px;
+    position: absolute;
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #f9844a;
+    font-size: 17px;
+    border-radius: 4px;
+}
+
+.attendance_reload_btn:hover {
+    font-weight: 700;
+    cursor: pointer;
+    background-color: #adb5bd;
 }

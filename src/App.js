@@ -13,11 +13,13 @@ import StudentDB from "./components/Admin/StudentDB/StudentDB";
 import AttendanceDB from "./components/Admin/AttendanceDB/AttendanceDB";
 import AddSubject from "./components/Admin/Add Subject/AddSubject";
 import AttendanceSheet from "./components/Admin/Attendance Sheet/AttendanceSheet";
+import AddSemester from "./components/Admin/AddSemester/AddSemester";
+import AttendancePage from "./components/Admin/AttendancePage/AttendancePage";
+import AttendanceProfile from "./components/Home/AttendanceProfile";
+import Add from "./components/Admin/Add/Add";
 
 
 function App() {
-
-
 
   return (
     <div>
@@ -35,6 +37,10 @@ function App() {
         <Route path="/attendanceDB" element={<AttendanceDB />} />
         <Route path="/addsubject" element={<AddSubject />} />
         <Route path="/sheet" element={<AttendanceSheet />} />
+        <Route path="/addsemester" element={<AddSemester />} />
+        <Route path="/attendanceprofile" element={<AttendanceProfile />} />
+        <Route path="/attendancepage" element={<AttendancePage />} />
+        <Route path="/add" element={<Add />} />
       </Routes>
     </div>
   );

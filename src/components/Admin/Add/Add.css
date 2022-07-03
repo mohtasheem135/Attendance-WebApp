@@ -1,18 +1,18 @@
-.admin_home_btn_container{
+.admin_home_btn_container-add{
     display: grid;
     /* border: 2px solid red; */
     margin-left: 100px;
     margin-top: 80px;
 }
 
-.admin_home_btn_container_btn_1{
+.admin_home_btn_container_add_btn_1{
     padding: 12px 20px;
     font-family: 'Ubuntu', sans-serif;
     font-size: 16px;
     letter-spacing: 1px;
     border: none;
     border-radius: 4px;
-    background-color: #bc6c25;
+    background-color: #f7bf33;
     font-weight: 600;
     cursor: pointer;
     width: 300px;
@@ -22,15 +22,6 @@
     box-shadow: 2px 1px 6px black;
 }
 
-.admin_home_btn_container_btn_1:hover{
+.admin_home_btn_container_add_btn_1:hover{
     background-color: rgba(189, 189, 189, 0.671);
-}
-
-.adminhome-img-1{
-    width: 35%;
-    /* border: 2px solid; */
-    margin-left: 50%;
-    margin-top: -26%;
-    border-bottom: 4px solid burlywood;
-    border-radius: 4px;
 }

@@ -23,7 +23,6 @@ const AttendanceDB = () => {
     const [day, setDay] = useState('')
     const [month, setMonth] = useState('')
 
-
     const options1 = [
         { value: '1', label: '1' },
         { value: '2', label: '2' },
@@ -82,15 +81,18 @@ const AttendanceDB = () => {
 
     const handelOptionSelect1 = (selectedOption) => {
         console.log("Sesion : " + selectedOption.value);
+        localStorage.setItem('day', selectedOption.value)
         setDay(selectedOption.value)
         
     }
     const handelOptionSelect2 = (selectedOption) => {
         console.log("Sesion : " + selectedOption.value);
+        localStorage.setItem('month', selectedOption.value)
         setMonth(selectedOption.value)
-
+        
     }
     const handelOptionSelect3 = (selectedOption) => {
+        localStorage.setItem('year', selectedOption.value)
         console.log("Sesion : " + selectedOption.value);
 
 
@@ -103,6 +105,7 @@ const AttendanceDB = () => {
                 snapshot({});
             }
         })
+        localStorage.setItem('ddaattee', localStorage.getItem('day')+localStorage.getItem('month')+selectedOption.value)
         navigate('/sheet')
 
     }
@@ -139,7 +142,7 @@ const AttendanceDB = () => {
     const handelDepartment = (e) => {
         e.preventDefault();
         setDepartment(e.target.value);
-        localStorage.setItem('studentDBDepartment', e.target.value)
+        localStorage.setItem('AttendanceDBDepartment', e.target.value)
 
         // if (localStorage.getItem('studentDBYear') !== null && e.target.value !== null) {
         if (year !== null && e.target.value !== null) {
@@ -158,7 +161,8 @@ const AttendanceDB = () => {
 
     const handelSemester = (e) => {
         setSemester(e.target.value)
-        fireDB.database().ref().child(`Attendance/Subjects/${year}/${department}/${e.target.value}/subjectCodes`).on('value', (snapshot) => {
+        localStorage.setItem('AttendanceDBSemester', e.target.value);
+        fireDB.database().ref().child(`Attendance/Subjects/${year}/${department}/${e.target.value}`).on('value', (snapshot) => {
             if (snapshot.val() != null) {
                 setValue3({
                     ...snapshot.val(),
@@ -172,6 +176,7 @@ const AttendanceDB = () => {
 
     const handelSubjects = (e) => {
         setSubject(e.target.value)
+        localStorage.setItem('AttendanceDBSubject', e.target.value)
         
         e.target.style.backgroundColor = '#a3b18a';
     }
@@ -215,7 +220,7 @@ const AttendanceDB = () => {
                 {Object.keys(value3).map((id, index) => {
                     return (
                         <div>
-                            <button className='studentDB_department_container_btn' onClick={handelSubjects} value={value3[id]}>{value3[id]}</button>
+                            <button className='studentDB_department_container_btn' onClick={handelSubjects} value={value3[id].subjectCode}>{value3[id].subjectCode}</button>
                         </div>
                     )
                 })}

@@ -37,6 +37,7 @@ const Login = () => {
     });
   }
 
+
   const handelClick = (e) => {
     e.preventDefault()
     console.log(data)
@@ -55,6 +56,10 @@ const Login = () => {
 
   }
 
+  const handelClick_1 =() => {
+    navigate('/register')
+  }
+
 
   return (
     <div>
@@ -65,7 +70,8 @@ const Login = () => {
           <input value={userName} name='userName' onChange={handelChange} className='reg_inp' type='text' placeholder='User Name' />
           <input value={email} name='email' onChange={handelChange} className='reg_inp' type='email' placeholder='Email' />
           <input value={password} name='password' onChange={handelChange} className='reg_inp' type='password' placeholder='Password' />
-          <button className='reg_inp_btn' onClick={handelClick}>Register</button>
+          <button className='reg_inp_btn' onClick={handelClick}>Login</button>
+          <button className='reg_inp_btn' onClick={handelClick_1}>SignUp</button>
         </form>
       </div>
     </div>

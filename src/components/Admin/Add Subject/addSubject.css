@@ -55,3 +55,33 @@
     top: 120px;
     letter-spacing: 1px;
 }
+
+.addSubject_subjectCode{
+    /* border: 2px solid black; */
+    display: grid;
+    position: absolute;
+    margin-left: 70%;
+    margin-top: -28%;
+}
+
+.addSubject_subjectCode_btn{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 17px;
+    margin-top: 10px;
+    padding: 8px 30px;
+    border: none;
+    background-color: #90be6d;
+    border-radius: 4px;
+}
+
+.addSubject_subjectCode_p1{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 20px;
+    text-align: center;
+}
+
+.addSubject_subjectCode_p2{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 17px;
+    text-align: center;
+}

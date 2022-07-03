@@ -1,0 +1,55 @@
+.attendanceSheet_container_1{
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.attendanceSheet_container_2{
+    /* border: 2px solid rgb(0, 0, 0); */
+    width: 100%;
+}
+
+.atendanceDB_container_2_p {
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+.attendanceSheet_container_container_0{
+    /* border: 2px solid black; */
+    border-bottom: 4px solid red;
+    display: flex;
+    justify-content: space-between;
+}
+
+.attendanceSheet_container_container_0_data{
+    margin-left: 30px;
+}
+
+.attendanceSheet_container_container_0_data_p{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 18px;
+    
+}
+
+.attendanceSheet_container_container_0_print{
+    margin-right: 80px;
+    margin-top: 60px;
+}
+
+.attendanceSheet_container_container_0_print_btn{
+    padding: 8px 25px;
+    font-size: 17px;
+    border: none;
+    font-family: 'Ubuntu', sans-serif;
+    background-color: brown;
+    color: white;
+    border-radius: 6px;
+}
+
+.attendanceSheet_container_container_0_print_btn:hover{
+    cursor: pointer;
+    color: black;
+    background-color: rgba(165, 42, 42, 0.541);
+}

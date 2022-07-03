@@ -2,21 +2,14 @@ import React, { useEffect, useState } from 'react';
 import AdminNavbar from '../../Navbar.js/AdminNavbar';
 import "./adminHome.css";
 import { useNavigate } from 'react-router';
+import img_1 from "../../../Resources/img_2.jpg"
 
 const AdminHome = () => {
 
   const navigate = useNavigate();
 
   const handelClick0 = (e) => {
-    navigate('/register')
-  }
-
-  const handelClick1 = (e) => {
-    navigate('/addstudent')
-  }
-
-  const handelClick2 = (e) => {
-    navigate('/addyear')
+    navigate('/add')
   }
 
   const handelClick3 = (e) => {
@@ -27,23 +20,23 @@ const AdminHome = () => {
     navigate('/attendanceDB')
   }
 
-  const handelClick5 = (e)=>{
-    navigate('/addsubject')
+  const handelClick8 = (e)=>{
+    navigate('/attendancePage')
   }
+
+ 
 
 
   return (
     <div>
       <AdminNavbar />
-      <h1>Admin Home</h1>
       <div className='admin_home_btn_container'>
-        <button onClick={handelClick0} className='admin_home_btn_container_btn_1'>Add Admin</button>
-        <button onClick={handelClick1} className='admin_home_btn_container_btn_1'>Add Students</button>
-        <button onClick={handelClick2} className='admin_home_btn_container_btn_1'>Add Year</button>
+        <button onClick={handelClick8} className='admin_home_btn_container_btn_1'>Attendance</button>
+        <button onClick={handelClick0} className='admin_home_btn_container_btn_1'>Add</button>
         <button onClick={handelClick3} className='admin_home_btn_container_btn_1'>Student DB</button>
         <button onClick={handelClick4} className='admin_home_btn_container_btn_1'>Attendance DB</button>
-        <button onClick={handelClick5} className='admin_home_btn_container_btn_1'>Add Subject</button>
       </div>
+      <img className='adminhome-img-1' src={img_1} />
     </div>
   )
 }
