@@ -3,12 +3,10 @@ import "firebase/compat/storage";
 import "firebase/compat/auth";
 import "firebase/compat/database";
 
-
-
-
 const firebaseConfig = {
     apiKey: "AIzaSyC69_9HA5MMXCZbe7aq8LKBPqohP5mLeJg",
     authDomain: "linkedin-b233b.firebaseapp.com",
+    databaseURL: "https://linkedin-b233b-default-rtdb.firebaseio.com",
     projectId: "linkedin-b233b",
     storageBucket: "linkedin-b233b.appspot.com",
     messagingSenderId: "587539870470",

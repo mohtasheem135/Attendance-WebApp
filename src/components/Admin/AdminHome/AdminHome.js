@@ -24,6 +24,10 @@ const AdminHome = () => {
     navigate('/attendancePage')
   }
 
+  const handelClick5 = (e)=>{
+    navigate('/studentattendance')
+  }
+
  
 
 
@@ -35,6 +39,7 @@ const AdminHome = () => {
         <button onClick={handelClick0} className='admin_home_btn_container_btn_1'>Add</button>
         <button onClick={handelClick3} className='admin_home_btn_container_btn_1'>Student DB</button>
         <button onClick={handelClick4} className='admin_home_btn_container_btn_1'>Attendance DB</button>
+        <button onClick={handelClick5} className='admin_home_btn_container_btn_1'>Student Attendance</button>
       </div>
       <img className='adminhome-img-1' src={img_1} />
     </div>

@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@500&family=Fira+Sans:wght@500&family=Kdam+Thmor+Pro&family=Macondo&family=Manrope:wght@300&family=Playfair+Display&family=Ubuntu:wght@300&display=swap');
+
+
+
+.attendanceDB-container_1{
+    /* border: 2px solid rgb(14, 14, 14); */
+    /* box-shadow: 0px 0px 6px black; */
+    margin-top: 20px;
+    overflow: auto;
+    height: 500px;
+    width: 400px;
+}
+
+.attendance-name-container{
+    padding: 1px;
+}
+
+.attendance-name-btn{
+    padding: 8px 0px;
+    width: 375px;
+    border: none;
+    text-transform: uppercase;
+    /* font-family: 'Edu NSW ACT Foundation', cursive; */
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 18px;
+    background-color: #dde5b6;
+}
+
+.attendance-name-btn:hover{
+    cursor: pointer;
+    /* background-color: red; */
+    color: white;
+    background-color: #e36414;
+}
+
+.attendance-details-container{
+    /* border: 2px solid red; */
+    margin-top: -35%;
+    margin-left: 40%;
+}
+
+.result-attendance-1{
+    width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: -27% 65%; 
+  background-color: #fff;
+  box-shadow:
+    0 0 60px 30px #fff,  /* inner white */
+    0 0 100px 60px rgb(121, 255, 44), /* middle magenta */
+    0 0 140px 90px rgb(28, 255, 96); /* outer cyan */
+}
+
+.result-attendance-2{
+    /* font-family: 'Ubuntu', sans-serif;
+    font-size: 27px;
+    color: rgb(255, 255, 255);
+    
+    background-color: #d00000;
+    width: 90px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    box-shadow:
+    0 0 10px 8px rgb(255, 255, 255),  
+    0 0 20px 30px rgb(250, 129, 15),
+    0 0 60px 40px rgb(255, 62, 28); 
+    border-radius: 5px;
+    margin: -35% 65%; */
+
+    width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: -27% 65%; 
+  background-color: #fff;
+  box-shadow:
+    0 0 60px 30px #fff,  /* inner white */
+    0 0 100px 60px rgb(255, 38, 0), /* middle magenta */
+    0 0 140px 90px rgb(255, 149, 28); /* outer cyan */
+}

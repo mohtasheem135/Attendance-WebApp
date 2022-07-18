@@ -420,10 +420,27 @@ hr {
     margin-top: 60px;
 }
 
-.home-attendanceprofile-container-1-h1{
+.home-attendanceprofile-container-1-h1-1{
     font-family: 'Ubuntu', sans-serif;
     cursor: default;
     margin-left: 44px;
+    color: green;
+    /* margin-top: 40px; */
+}
+
+.home-attendanceprofile-container-1-h1-2{
+    font-family: 'Ubuntu', sans-serif;
+    cursor: default;
+    margin-left: 44px;
+    color: red;
+    /* margin-top: 40px; */
+}
+
+.home-attendanceprofile-container-1-h1-3{
+    font-family: 'Ubuntu', sans-serif;
+    cursor: default;
+    margin-left: 44px;
+    color: rgb(144, 40, 241);
     /* margin-top: 40px; */
 }
 

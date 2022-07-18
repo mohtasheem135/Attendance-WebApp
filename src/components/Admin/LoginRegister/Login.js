@@ -42,9 +42,9 @@ const Login = () => {
     e.preventDefault()
     console.log(data)
 
-    if(data.password === initialState.password && data.email === initialState.email) {
+    if (data.password === initialState.password && data.email === initialState.email) {
       localStorage.setItem('username', data.userName)
-      navigate('/home'); 
+      navigate('/home');
     } else {
       alert("Email or Password is incorrect ..... Try Again!!!");
       setInitialState({
@@ -56,22 +56,22 @@ const Login = () => {
 
   }
 
-  const handelClick_1 =() => {
-    navigate('/register')
-  }
+  // const handelClick_1 =() => {
+  //   navigate('/register')
+  // }
 
 
   return (
     <div>
       <LoginNavbar />
       <div className='reg_container'>
-        <h1 className='reg_container_head'>Admin Registration Form...</h1>
+        <h1 className='reg_container_head'>Admin Login Form...</h1>
         <form className='reg_inp_form login_inp_form'>
           <input value={userName} name='userName' onChange={handelChange} className='reg_inp' type='text' placeholder='User Name' />
           <input value={email} name='email' onChange={handelChange} className='reg_inp' type='email' placeholder='Email' />
           <input value={password} name='password' onChange={handelChange} className='reg_inp' type='password' placeholder='Password' />
           <button className='reg_inp_btn' onClick={handelClick}>Login</button>
-          <button className='reg_inp_btn' onClick={handelClick_1}>SignUp</button>
+          {/* <button className='reg_inp_btn' onClick={handelClick_1}>SignUp</button> */}
         </form>
       </div>
     </div>

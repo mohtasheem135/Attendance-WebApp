@@ -17,6 +17,8 @@ import AddSemester from "./components/Admin/AddSemester/AddSemester";
 import AttendancePage from "./components/Admin/AttendancePage/AttendancePage";
 import AttendanceProfile from "./components/Home/AttendanceProfile";
 import Add from "./components/Admin/Add/Add";
+import StudentAttendance from "./components/Admin/Student Attendance/StudentAttendance";
+import StudentAttendanceDB from "./components/Admin/Student Attendance/StudentAttendanceDB";
 
 
 function App() {
@@ -41,6 +43,8 @@ function App() {
         <Route path="/attendanceprofile" element={<AttendanceProfile />} />
         <Route path="/attendancepage" element={<AttendancePage />} />
         <Route path="/add" element={<Add />} />
+        <Route path="/studentattendance" element={<StudentAttendance />} />
+        <Route path="/studentattendancedb" element={<StudentAttendanceDB />} />
       </Routes>
     </div>
   );

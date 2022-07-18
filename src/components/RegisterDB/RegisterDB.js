@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Navbar from '../Navbar.js/Navbar';
 import "./registerDb.css";
 import Select from 'react-select';
@@ -42,10 +42,6 @@ const RegisterDB = () => {
         { value: '2024', label: '2024' },
     ];
 
-
-    // useEffect(()=> {
-
-    // })
 
     function handelOptionSelect1(selectedOption) {
         // console.log("Sesion : " + selectedOption.value);
